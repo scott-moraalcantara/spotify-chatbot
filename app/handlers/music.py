@@ -15,3 +15,12 @@ spotify = spotipy.Spotify(auth_manager=SpotifyOAuth(
             redirect_uri= SPOTIFY_REDIRECT_URI,
             scope= "user-read-playback-state,user-modify-playback-state,playlist-read-private"
 ))
+
+def search_track(query):
+    results = spotify.search(q=query, type='track', limit=1)
+    if results['track']['items']:
+        return results['track']['items'][0]['uri']
+    return None
+
+def play_track(track_uri):
+    spotify.start_playback(uris=[track_uri])
