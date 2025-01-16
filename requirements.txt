@@ -1,0 +1,7 @@
+flask
+spotipy 
+langchain
+openai
+streamlit
+requests
+unittest
